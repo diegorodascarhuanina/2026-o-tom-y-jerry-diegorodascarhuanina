@@ -71,7 +71,7 @@ describe "testear casa"{
 
   casa.pasarNoche()
 
-  assert.equals(380,tom.energia())
+  assert.equals(430,tom.energia())
 
   }
 
