@@ -8,6 +8,8 @@ object pepita {
   }
 }
 
+//
+
 object casa{
 
     var cuidador = tom
@@ -39,7 +41,6 @@ object casa{
 
     }
 
-    method estadoSuenio() = true
     method tieneQuilombero() = quilombero != null
 
     method pasarDia(){
@@ -54,7 +55,6 @@ object casa{
 
     }
 
-
     method pasarNoche(){
 
     cuidador.dormir() 
@@ -67,8 +67,17 @@ object casa{
 
     }
 
+    method cambiarCuidador(otroCuidador){
 
+    cuidador = otroCuidador
 
+    }
+
+    method quilombero(otroQuilombero){
+
+    quilombero = otroQuilombero
+
+    }
 
 }
 
