@@ -16,6 +16,14 @@ object casa{
     var quilombero = pandilla
 
     var suciedad = 600
+    
+    method suciedad() = suciedad
+
+    method suciedad(valor){ 
+    
+    suciedad = valor
+
+    }
 
     method interrumpirSuenoCuidador(){  
     
@@ -88,6 +96,12 @@ object tom{
     var energia = 400
 
     method energia() = energia
+    
+    method energia(valor){
+
+      energia = valor
+
+    }
 
     method interrumpirSueno(){
 
@@ -179,5 +193,50 @@ object pandilla{
     }
 
   }
+
+}
+
+object spike{
+
+  var energia = 900
+
+    method energia() = energia
+
+    method interrumpirSueno(){
+
+    energia -=50
+
+    }
+
+    method limpiarCasa(casa){
+    
+    casa.reducirSuciedad(60)
+    energia -=40    
+
+    } 
+
+    method velocidad() = 8 + energia.div(10)
+
+    method atrapar(quilombero) = self.velocidad() > quilombero.velocidad()
+
+    method dormir(){
+
+    energia += 100
+
+    }
+}
+
+object butch {
+
+  var peso = 90
+  var intensidad = 120
+
+  method quilombo(casa) {
+    casa.interrumpirSuenoCuidador()
+    casa.aumentarSuciedad(intensidad)
+    peso += 5
+  }
+
+  method velocidad() = peso.div(2)
 
 }

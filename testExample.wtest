@@ -1,4 +1,5 @@
-import example.pepita
+import example.*
+
 
 describe "group of tests for pepita" {
 
@@ -7,3 +8,84 @@ describe "group of tests for pepita" {
   }
 
 }
+
+describe "testear casa"{
+
+  test "tom limpia la casa y pierde energia"{
+  
+  casa.cambiarCuidador(tom)
+  tom.energia(400)
+  casa.quilombero(null)
+  casa.suciedad(600)
+
+  casa.pasarDia()
+
+  assert.equals(500,casa.suciedad())
+  assert.equals(360,tom.energia())
+
+  }
+
+  test "tom atrapa al jerry y lo saca de la casa"{
+
+  casa.cambiarCuidador(tom)
+  casa.quilombero(jerry)
+  casa.suciedad(600)
+
+  casa.pasarDia()
+
+  assert.notThat(casa.tieneQuilombero())
+
+  }
+
+
+  test "roboCat siempre atrapa al quilombero y deja la casa limpia"{
+
+   casa.cambiarCuidador(roboCat) 
+   casa.quilombero(jerry)
+   casa.suciedad(600)
+
+    casa.pasarDia()
+
+    assert.notThat(casa.tieneQuilombero())
+    assert.equals(0,casa.suciedad())
+
+  }
+
+  test "jerry hace quilombo de noche y ensucia la casa"{
+
+  casa.cambiarCuidador(tom)
+  casa.quilombero(jerry)
+  casa.suciedad(600)
+
+  casa.pasarNoche()
+
+  assert.equals(710,casa.suciedad())
+
+  }
+
+  test "tuffy interrumpe el sueño del cuidador"{
+
+  casa.quilombero(tuffy)
+  casa.cambiarCuidador(tom)
+  tom.energia(400)
+
+  casa.pasarNoche()
+
+  assert.equals(380,tom.energia())
+
+  }
+
+  test "la pandilla hace quilombo con todos sus miembros"{
+  
+  casa.cambiarCuidador(tom)
+  casa.quilombero(pandilla)
+  casa.suciedad(600)
+
+  casa.pasarNoche()
+
+  assert.equals(710,casa.suciedad())
+
+  }
+
+}
+
